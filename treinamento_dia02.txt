@@ -1,0 +1,402 @@
+tratamento de erro no java
+
+try {
+
+
+
+
+} catch (Exception ex){
+
+	ação
+}
+
+
+
+função arrey dinamica
+ArreyList<ContaBancaria> listaContas = new ArreyList<ContaBancaria>();
+
+adicao ao arreyList
+lista.add(ContaBancaria);
+
+get(int) traz a informação da posicao colocada;
+
+size() mostra o tamanho da lista
+
+
+
+*******************************************************************************
+Novas funçoes
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+ 
+public class IBank {
+ 
+    public static void main(String[] args) {
+ 
+        Scanner leitor = new Scanner(System.in);
+ 
+        // ContaBancaria listaContas[] = new ContaBancaria[2];
+        // int idDisponivel = 0;
+        ArrayList<ContaBancaria> listaContas = new ArrayList<ContaBancaria>();
+        int opcaoSelecionada;
+ 
+        do {
+ 
+            System.out.println("---Selecione no menu---");
+            System.out.println("1 - Criar nova Conta");
+            System.out.println("2 - Exibir dados da conta");
+            opcaoSelecionada = leitor.nextInt();
+ 
+            switch (opcaoSelecionada) {
+                case 1:
+                    try {
+ 
+                        // Captura de dados no terminal
+                        System.out.print("Digite o nome do novo correntista: ");
+                        String novoNome = leitor.next();
+                        System.out.print("Digite o seu saldo Inicial: ");
+                        double saldoInicial = leitor.nextDouble();
+                        System.out.print("Digite o numero da conta: ");
+                        int numeroConta = leitor.nextInt();
+ 
+                        // Instanciando objeto
+                        ContaBancaria novaContaBancaria = new ContaBancaria(novoNome, saldoInicial, numeroConta);
+ 
+                        listaContas.add(novaContaBancaria);
+                        // listaContas[idDisponivel] = novaContaBancaria;
+                        // idDisponivel++;
+ 
+                    } catch (Exception e) {
+                        System.out.println("Houve um erro no cadastro da Conta, tente novamente!");
+                    }
+ 
+                    break;
+                case 2:
+ 
+                    System.out.print("Digite o numero da conta que deseja exibir: ");
+                    int contaSelecionada = leitor.nextInt();
+ 
+                    boolean achou = false;
+                    for (int index = 0; index < listaContas.size(); index++) {
+                        ContaBancaria elemento = listaContas.get(index);
+ 
+                        if (elemento.getNumero() == contaSelecionada) {
+                            System.out.println("--------------------");
+                            System.out.println(elemento.getNome());
+                            System.out.println(elemento.getSaldo());
+                            System.out.println(elemento.getNumero());
+                            System.out.println("--------------------");
+                            achou = true;
+                        }
+ 
+                    }
+                    if (achou == false) {
+                        System.out.println("Sua conta não foi encontrada...");
+                    }
+ 
+                    break;
+ 
+                case 0:
+                    break;
+                default:
+                    System.out.println("Opção Invalida, selecione novamente");
+                    break;
+            }
+ 
+        } while (opcaoSelecionada != 0);
+ 
+    }
+}
+
+*********************************************************************************
+
+Novas propriedades do class
+
+ // Propriedades
+    private String nome;
+    private double saldo;
+    private int numero;
+ 
+    // Métodos de acesso
+    public String getNome() {
+        return nome;
+    }
+ 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+ 
+    public double getSaldo() {
+        return saldo;
+    }
+ 
+    public int getNumero() {
+        return numero;
+    }
+ 
+    // Métodos de ação (opcional)
+    public void depositar(double valorDepositado) {
+        this.saldo += valorDepositado;
+    }
+ 
+    public void sacar(double valorSacado) {
+        this.saldo -= valorSacado;
+    }
+ 
+    // Métodos Construtores (opcional)
+    public ContaBancaria() {
+ 
+    }
+ 
+    public ContaBancaria(String nome, double saldo, int numero) {
+        this.nome = nome;
+        this.saldo = saldo;
+        this.numero = numero;
+    }
+ 
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+meu exerciicos
+
+package aula01;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProgramaConta {
+    public static void main(String[] args) {
+        
+        Scanner leitor = new Scanner(System.in);
+       
+        ArrayList<Contas> listaContas = new ArrayList<Contas>();
+
+        int opcao;
+        do{
+            System.out.println("O que deseja fazer?:  ");
+            System.out.println("1 - abrir uma conta ");
+            System.out.println("2 - consultar o saldo ");
+            System.out.println("3 - fazer um saque ");
+            System.out.println("4 - fazer um deposito ");
+            System.out.println("5 - fazer uma transferancia ");
+            System.out.println("6 - sair ");
+            opcao = leitor.nextInt();
+            
+            int contaSelecionada;
+            boolean verificar;
+            Contas novaconta = null;
+
+            switch (opcao){
+                case 1:
+                        try{
+                            System.out.println(" Opcao abrir conta");
+                            System.out.println(" Digite o nome do correntista: ");
+                            String novoNome = leitor.next();
+                            System.out.println(" Digite a conta: ");
+                            double numeroConta = leitor.nextDouble();
+                            System.out.println(" Deposite um valor para saldo inicial: ");
+                            double novoSaldo = leitor.nextDouble();
+
+                            novaconta = new Contas(novoNome, novoSaldo, numeroConta);
+                            listaContas.add(novaconta);
+                            } catch (Exception e) {
+                                System.out.println("Houve um erro no cadastro da Conta, tente novamente!");
+                            } 
+                    break;
+                
+                case 2:
+                            System.out.print("Digite o numero da conta que deseja exibir: ");
+                            contaSelecionada = leitor.nextInt();
+    
+                            verificar = false;
+                            for (int index = 0; index < listaContas.size(); index++) {
+                                Contas elemento = listaContas.get(index);
+
+                                if (elemento.getconta() == contaSelecionada) {
+                                    System.out.println("--------------------");
+                                    System.out.println(elemento.getnome());
+                                    System.out.println(elemento.getsaldo());
+                                    System.out.println(elemento.getconta());
+                                    System.out.println("--------------------");
+                                    verificar = true;
+                                }
+
+                            }
+                            if (verificar == false) {
+                                System.out.println("Sua conta não foi encontrada...");
+                            }
+
+                    break;
+                    
+                case 3:
+                            System.out.print("Digite o numero da conta que deseja sacar: ");
+                            contaSelecionada = leitor.nextInt();
+                            System.out.print("Qual o valor para saque?: ");
+                            double valorSaque = leitor.nextInt();
+
+                            verificar = false;
+                            for (int index = 0; index < listaContas.size(); index++) {
+                                Contas elemento = listaContas.get(index);
+
+                                if (elemento.getconta() == contaSelecionada) {
+                                    elemento.sacar(valorSaque);
+                                    System.out.println(elemento.getsaldo());
+                                    System.out.println("");                             
+                                    verificar = true;
+                                }
+                            }
+                            if (verificar == false) {
+                                System.out.println("Sua conta não foi encontrada...");
+                            }
+                    break;
+                
+                case 4:
+                            System.out.print("Digite o numero da conta que deseja depositar: ");
+                            contaSelecionada = leitor.nextInt();
+                            System.out.print("Qual o valor para deposito?: ");
+                            double valorDeposito = leitor.nextInt();
+
+                            verificar = false;
+                            for (int index = 0; index < listaContas.size(); index++) {
+                                Contas elemento = listaContas.get(index);
+
+                                if (elemento.getconta() == contaSelecionada) {
+                                    elemento.depositar(valorDeposito);
+                                    System.out.println(elemento.getsaldo());
+                                    System.out.println("");                               
+                                    verificar = true;
+                                }
+                            }
+                            if (verificar == false) {
+                                System.out.println("Sua conta não foi encontrada...");
+                            }
+                    break;
+
+                case 5: 
+                            System.out.print("Digite o numero da conta que deseja transferir: ");
+                            double contaDestino = leitor.nextInt();
+                            System.out.print("De qual conta será feita a transferencia: ");
+                            double contaOrigemTransf = leitor.nextInt();
+                            System.out.print("Qual o valor para transferencia?: ");
+                            double valorTransferencia = leitor.nextInt();
+
+                            Contas elementoDestino = null;
+                            Contas elementoOrigem = null;
+                            verificar = false;
+                            for (int index = 0; index < listaContas.size(); index++) {
+                                
+                                if (elementoDestino.getconta() == contaDestino)
+                                    elementoDestino = listaContas.get(index);
+                                }  
+                            
+                            for (int index = 0; index < listaContas.size(); index++) {
+                                    
+                                if (elementoOrigem.getconta() == contaOrigemTransf)
+                                    elementoOrigem = listaContas.get(index);
+                                } 
+                                    
+                               //if(contaOrigemTransf != contaSelecionada)
+                               
+                                if (elementoDestino.getconta() != elementoOrigem.getconta()) {
+                                    elementoDestino.transferir(valorTransferencia, elementoDestino);
+                                    System.out.println(elementoDestino.getsaldo());
+                                    System.out.println("");                               
+                                    verificar = true;
+                                }
+                            
+                            if (verificar == false) {
+                                System.out.println("Sua conta não foi encontrada...");
+                            }
+                    break;
+                
+                case 6:
+                            System.out.println("Agradecemos a preferencia");
+                            System.out.println("");
+                    break;
+                
+                default:
+                    break;
+            }
+
+        }while (opcao != 6);
+
+    }
+}
+
+******************______________________________Classe criada_____________________***********************************
+package aula01;
+
+public class Contas {
+    
+    private double saldo;
+    private double conta;
+    private String nome;
+
+
+    // metodos de acesso *** 
+  
+  
+    public void setsaldo(double saldo){
+        this.saldo = saldo;
+    }
+    public double getsaldo(){
+        return this.saldo;      
+    }
+    public void setconta(double conta){
+        this.conta = conta;
+    }
+    public double getconta(){
+        return this.conta;
+    }
+    public void setnome(String nome){
+        this.nome = nome;
+    }
+    public String getnome(){
+        return this.nome;
+    }
+
+    //*********/ Metodos de acao ****
+    
+    public void transferir(double transferir, Contas contaDestino){
+        if ( transferir < saldo){
+            this.saldo -= transferir;
+            contaDestino.depositar(transferir);
+        } else {
+            System.out.println("Não há saldo disponível");
+        }
+    }
+
+    public void depositar(double depositar){    
+            this.saldo += depositar;
+    }
+
+    public void sacar(double sacar){
+        if ( sacar< saldo){   
+            
+            this.saldo -= sacar;
+        } else {
+            System.out.println("Não há saldo disponível");
+        }
+   
+    }
+    public void consultar(){
+        System.out.println("Valor do saldo da conta eh: " + getsaldo());   
+    }
+    public void getagradecer(){
+        System.out.println("Agradecemos a preferencia!!!");   
+    }
+
+    // *********************** Metodo construtor da conta ************************
+    public Contas(String nome, double saldo, double conta){
+
+        this.nome = nome;
+        this.saldo = saldo;
+        this.conta = conta;
+
+    }
+   
+}
