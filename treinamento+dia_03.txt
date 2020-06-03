@@ -1,0 +1,38 @@
+metodo de declarar a herança
+
+public class Cachorro extends Mamiferos{
+
+
+informações da classe mamiferos seraó herdadas pela classe cachorro
+
+@Override sobreesvreve as informações de propriedades classe filho (cachorro) da classe pai (mamiferos)
+
+}
+
+class abstract class Mamifero
+
+nesse caso não instaciar um  novo objeto;
+
+polimorfismo: podemos criar um objeto a partir de uma classe instancia desde que o objeto tenha uma relação de herança
+
+
+Iterface
+
+não tem propriedades
+
+só tem ações
+
+não tem metodos de acesso
+não tem metodos de contrução
+
+clausula
+public void voar ();
+
+assinatura de interfacae
+
+public class Pato extends Aves implements Ivoar
+
+final é uma palavra destinada para cosntantes
+
+
+https://github.com/jcbombardelli/cursojavaturma3-techinsiders/tree/master/dia-07
