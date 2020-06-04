@@ -1,0 +1,207 @@
+
+vERSIONAMENTO DE CODIGO
+
+No inicio
+
+Primeira tentativa - com FTP
+versinamento manual
+
+Source Safe - utilizada para que somente um dev faça o arquivo por vez
+versiomaneto automático
+
+
+Ifra entrega o ip fixo
+
+o dev transforma para DNS (nome do site);
+
+Virtualização: cirar maquinas virtuais aumeta o poder de processamento; com mais de um núcleo
+
+VM virtual machine:
+VB vitual box: hack vitual
+
+
+Utilizar o source control para fazer deploy de versões;
+
+operações
+saber redes
+saber ligar 
+saber procesamento
+banco de dados 
+sistemas operacionais
+
+desenvolvedor
+back end
+front end
+plugins
+performance de querie;
+gerenciamentos de redes
+
+surgiu da necessidade de evolução de dev e ops
+
+
+Vagram
+
+abstração da VM
+dev construia o codigo que monstava o vm menor para fazer um deploy mais rapido
+
+passava para a op que instalava nas VMs utilizando de virtual machine box
+
+
+Ponto fraco de VM e Vagram é o sistema oparacional, que é muito pesado
+
+Conceito de docker: conteiners
+
+SO é um docker com varios ferramentas dentro dele
+
+nele vc so instala o que é necessario para poder rodar, com isso a VM fica mais rapido;
+
+
+Conceito Cubernets: load balacer
+
+gerencia os dockers verifica o nivel de processamento de servidores e verifica qual deles pode trazer o dados processado
+
+Adveto do puppet script psrw criar virtualizações com sespecificações necssa´rias para o deploy
+
+
+a evolução pediu que os sistemas operacionaris fossem evoluidos 
+
+separadno 
+procesamento
+banco de dados
+assets s3
+cash (memoria ram)
+
+C.I.
+Pipeline com a ferramenta Jenkins
+conceito de continuos deploy com processo abaixo:
+
+C.D.
+pull --> tdd --> bdd --> dev -->QA --> produção
+
+ferramentas TesteDrivenDevelopment e BehaviorDrivenDevelopment para teste em massa
+
+Cucamber Selene
+
+teste de controler
+teste de acesso
+regular expression
+
+Profissionais QA testatdores de sistemas; virou um programador
+
+
+ch mode é para dar permissaõ de arquivos
+
+
+https://devhints.io/bash para linux
+wordpress
+arquitetura mvc
+SHA I arquivos de criptografia
+
+switch de teste de java?
+
+npm install -g express-generator
+express MeuProjeto --view=ejs
+cd MeuProjeto
+npm install
+npm start
+
+
+https://www.npmjs.com/package/jasmine
+
+# Local installation: 
+npm install --save-dev jasmine
+
+# Global installation 
+npm install -g jasmine
+
+To initialize a project for Jasmine
+
+jasmine init
+
+no vs
+na psta spec
+criar a opasta controler
+criar arquivo homeController.spec.js
+
+
+teste de controlleer
+
+describe('homeController', () => {
+ beforeEach( async() => {
+ console.log("inicio")
+ })
+ it('deveria retornar status code de 200', async () => {
+ const x = "danilo"
+ expect(x).toBe("danilo")
+ })
+})
+
+
+
+terminal detro da pasta meu proeto
+teste
+digitar jasmine
+
+
+eh chamado de teste unitário
+
+
+Cucuber js 
+teste de behavior
+
+inicializar no cmd
+
+
+no vs
+
+nova folder
+arquivo homefeature
+digitar
+Feature: Simple maths
+  
+  I want to visit home
+  Scenario: visit home
+    Given a I stay in home
+    When I click in home 
+    Then visualize landing home
+
+
+ no cmd
+digitar
+
+
+no vs
+novo arquvo
+home_steps.js
+no arquivo
+modificar o given
+const { Given, When, Then } = require("cucumber");
+
+no return
+"success"
+
+no vs
+pakage.jason
+
+
+Torne-se um programador 
+
+abrir o video
+
+83
+
+
+links
+
+https://expressjs.com/pt-br/starter/installing.html
+
+
+https://www.npmjs.com/package/express-generator
+
+https://www.npmjs.com/package/jasmine
+
+https://rubygems.org/?locale=pt-BR
+
+https://cucumber.io/docs/installation/javascript/
+
+http://www.torneseumprogramador.com.br/aulas/danilo/javascript
