@@ -100,7 +100,6 @@ SHA I arquivos de criptografia
 switch de teste de java?
 
 npm install -g express-generator
-na pasta onde sera criado o projeto deve ser dado o npm init
 express MeuProjeto --view=ejs
 cd MeuProjeto
 npm install
@@ -208,3 +207,143 @@ https://cucumber.io/docs/installation/javascript/
 http://www.torneseumprogramador.com.br/aulas/danilo/javascript
 
 : https://github.com/ehopner/NovaTentativa
+
+
+jenkings
+
+stage('cloneRepo') {
+    build 'CloneProjeto'
+}
+
+ 
+
+stage('TDD') {
+    build 'RodarTeste'
+}
+
+ 
+
+stage('BDD') {
+    build 'TesteBDD'
+}
+
+teste mocado -->
+
+TDD req.get("google")
+teste moc
+toda vez que chama uma url e o programa pode devolver uma html
+
+
+Criar uma conta no hiroko
+
+podemos executar uma ação schedulada no jenkins periodicamente usando crontab
+
+no jenkins
+
+cirando pipeline
+
+Teste unitario
+
+novo jon configura
+buid sterp shell
+cd -/ projetos/ jenkins
+rm - rf "direorio"
+
+git clone "nome do projeto"
+
+cd "diretorio"
+npm install
+npm run teste
+
+teste BDD
+
+novo jon configura
+buid sterp shell
+cd -/ projetos/ jenkins
+rm - rf "direorio"
+
+git clone "nome do projeto"
+
+cd "diretorio"
+npm install
+npm run cucumber
+
+Deploy Heroku
+
+novo jon configura
+buid sterp shell
+
+cd "diretorio"
+npm install
+npm run cucumber
+
+
+Baixar o Heroku CLI
+
+new relic ferramenta de monitoração e consegue ver a nivel de qurie
+
+
+configurar a pipeline
+depois de fazer as jobs
+
+entrar no criar diretório
+
+configurar
+ações pos build
+colocar o nome do projeto
+
+na hora de ver a pipeline
+do lado de "tudo" clicar no mais
+
+opção build pipeline
+
+pipeline
+select initial pipeline
+slect quantas linhas
+
+oplçao pos deploy
+ build another project manual step
+
+
+
+---------------------------
+comandos TDD
+cd C:\Users\987287653\OneDrive - Banco Itaú SA\Documents\treinamento_dia_04\Treino_CI\meuprojeto
+git pull --force
+npm install
+npm run teste
+
+
+----------------------------
+
+comandos BDD
+
+cd "C:\Users\987287653\OneDrive - Banco Itaú SA\Documents\treinamento_dia_04\Treino_CI\meuprojeto"
+npm run cucumber
+
+
+-----------------------------
+
+comandos ´DevDeploy
+
+cd "C:\Users\987287653\OneDrive - Banco Itaú SA\Documents\treinamento_dia_04\Treino_CI\meuprojeto"
+git pull 
+git push heroku master
+
+
+-------------------------------
+comandos QA
+
+cd "C:\Users\987287653\OneDrive - Banco Itaú SA\Documents\treinamento_dia_04\Treino_CI\meuprojeto-QA"
+
+git pull 
+git push heroku master
+
+
+----------------------------
+Comandos pro
+
+cd "C:\Users\987287653\OneDrive - Banco Itaú SA\Documents\treinamento_dia_04\Treino_CI\meuprojeto-prod"
+
+git pull
+git push heroku master
