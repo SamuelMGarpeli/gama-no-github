@@ -100,6 +100,7 @@ SHA I arquivos de criptografia
 switch de teste de java?
 
 npm install -g express-generator
+na pasta onde sera criado o projeto deve ser dado o npm init
 express MeuProjeto --view=ejs
 cd MeuProjeto
 npm install
