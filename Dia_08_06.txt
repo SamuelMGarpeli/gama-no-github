@@ -1,0 +1,89 @@
+JavaScript
+
+Linguagem WEB
+
+html --> conteudo do site
+
+css --> estilo do site
+
+javascript --> interação com usuário
+
+technologia dyno
+tecnologia angular
+tecnologia jquerie
+tecnologia bootstrap 
+
+https://getbootstrap.com/docs/3.4/getting-started/#download
+
+
+hoisting usando var
+charAt
+
+consultar cpf validação
+
+nomes de variaveis camelCase
+
+todas as variaveis comecam com letra
+
+sempre colocar espaço entre operadores edepois da virgurla
+
+para identação use sempre dois epaços
+
+sempre termine com a instrução seimples com ponto e virgula
+
+cada linha de codigo não deve ultrapassar 80 caracteres
+
+sempre utilize arquivos externos para sua pagina HTML invocar o JavaScript
+
+nomes de arquivos devem ser sempre minusculos
+
+
+linhas de comando do javascript
+
+variaveis - é utilizada para especificar um valor não totalmente especificado ou desconhecido
+
+console.log()
+- exibe texto no console do navegador
+
+prompt()
+- Entrada de dados a partir do navegador
+
+
+input entrada de dados
+button cria um botão
+
+document chamda o arquivo html
+
+<div> </div> separador de text
+
+https://swapi.dev/
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API
+
+verbis de metodo HTTP
+get -- recuperar itens da API
+post -- enviar novos itens (enviar do front end para o backend)
+put -- atualização de itens existentes
+delete -- remove itens existentes
+
+
+status de respostas de http
+http://http.cat
+https://httpstatusdogs.com/
+
+falsa requisição de load
+no index
+
+no h3 dentro do conteiner
+<h3 id ="loadind"
+
+criação de uma string com outras variaveis 
+
+const url = `https://swapi.dev/people/${id}`
+
+jwt metodos de segurança
+https://jwt.io/
+
+https://github.com/jcbombardelli/cursojavaturma3-techinsiders/tree/master/
+
+
