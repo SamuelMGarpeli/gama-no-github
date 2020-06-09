@@ -1,0 +1,404 @@
+Instalador do mysql comunit
+
+https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-web-community-5.7.29.0.msi
+
+instalar
+MySQL Server 5.7.30 - x64
+
+acessórios
+MysqlWorkbench 8.0.20 - x64
+
+porta 3306
+senha root
+
+instancia MySQL57
+
+configuração workbench
+clicar no local instance e colocar a senha
+
+-------------------
+site com várias informações 
+https://www.w3schools.com/
+
+https://www.w3schools.com/sql/sql_autoincrement.asp
+
+https://www.w3schools.com/sql/sql_dates.asp
+
+rodar uma instrução com o comando
+ctrl + enter (depois do ponto e virgula)
+
+https://www.frameworkdemoiselle.gov.br/   framework para fazer aplicações web
+
+https://www.vraptor.org/pt/
+
+protocolo http
+
+protocolo udp
+
+orm node: moongose
+orm node: typeorm
+orm node: primer
+
+restcontroller
+
+injeção de dependencia springbot instancia uma interface
+--------------------
+
+ir até schema na área branca
+com o botaõ direto e selecionar a opção:
+crerate schema
+
+depois sobre o schema com o botão direito
+set as default schema
+
+ou
+
+CREATE TABLE Pessoas (
+id int,
+nome varchar(255),
+cidade varchar(255)
+);
+
+sbre o schema com o botão direito
+alter table
+
+selecionar 
+id como pk
+
+CRUD creat read update delete
+
+no campo query:
+select * from pessoas 
+
+INSERT INTO `ibank`.`pessoas` (`id`, `nome`, `cidade`) VALUES ('1', 'Samuel', 'Manaus');
+
+UPDATE `ibank`.`pessoas` SET `nome` = 'Felipe' WHERE (`id` = '1');
+
+DELETE FROM `ibank`.`pessoas` WHERE (`id` = '1');
+
+COMENTÁRIO NO MYSQL -- (NOME, CIDADE)
+
+MECANISMO DE UNIÃO DE TABELAS
+
+select * from pessoas pes
+inner join cidades cid on cid.id = pes.id;
+
+
+mudando alias
+SELECT pes.id, pes.nome as "nome da pessoa", cid.nome as "nome da cidade", cid.estado from pessoas pes
+inner join cidades cid on cid.id = pes.id;
+
+contando quantas itens tem na tabela
+select count(*) as 'numero total de pessoas' from pessoas;
+
+
+consulta de um dado especifico da tabela
+select * from cidades
+WHERE cidades.nome = 'Santos';
+
+outro exemplo de consulta feita em tabela
+
+select * from cidades
+WHERE cidades.estado = 'São Paulo';
+
+outro exemplo de busca para uma parte especifica de um campo da tabela
+
+select * from cidades
+where cidades.nome LIKE '%an%';
+neste caso %letras% busca uma cidade com as letras an no meio da palavra
+
+a busca por letras no começo
+select * from cidades
+where cidades.nome LIKE 'an%';
+neste caso letras% busca uma cidade com as letras an no começo da palavra
+
+a busca por letras no fim
+select * from cidades
+where cidades.nome LIKE '%an';
+neste caso letras% busca uma cidade com as letras an no fim da palavra
+
+
+busca por ID utilizando um modelo do tipo IF
+select * from cidades
+WHERE cidades.id > 1;
+
+neste caso cidades com ID maior que 1
+
+
+
+trabalhando com datas no mysql
+gravando o momento de inserção, delete ou alteração de dados
+
+definindo datas
+
+criamos tabela
+ CREATE TABLE logs (    id int not null,
+    mensagem varchar(255),
+    criado_em date,
+    PRIMARY KEY (id)
+);
+
+inserimos dados
+INSERT INTO logs 
+VALUES (1, 'Login criado com sucesso', '2020-06-09');
+
+verificando os dados inseridos na tabela de data
+select * from logs;
+
+formatando data na tabela (não é recomendado, deve ser feito na aplicação)
+select DATE_FORMAT(logs.criado_em, '%d/%m/%Y') as 'Data Criacao' from logs;
+
+select DATE_FORMAT(logs.criado_em, '%d/%m/%Y') as 'Data Criacao', logs.criado_em from logs;
+
+select DATE_FORMAT(logs.criado_em, '%d/%m/%Y') as 'Data Criacao' from logs;
+
+
+
+----------------------------------
+Parte da tarde
+
+construindo api
+
+link para o postman
+https://www.postman.com/
+
+spring bot link abaixo:(serve para criar aplicações web)
+
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.0.RELEASE&packaging=jar&jvmVersion=1.8&groupId=br.com.itau.techinsiders&artifactId=ibank&name=ibank&description=Projeto%20utilizado%20para%20Turma%20Itau%20Tech%20Insiders&packageName=br.com.itau.techinsiders.ibank&dependencies=devtools,web,data-jpa
+
+
+ajudar a instalar biblioteca para o java ler banco de dados
+
+formato de saída empacotamentos jar
+
+devtools
+spring boot - atualiza os codigos autmaticamente
+
+spring web
+sobe um servidor apache tomcat
+
+spring data jpa
+ensinar a aplicação a conversar com o banco de dados, com a biblioteca hibernate
+
+
+baixar os arquivos gerados do site
+
+pasta mvm -- ajuda a gerenciar o projeto
+
+pasta target -- fica as classes onde fazemos no java
+
+arquivo gitgnore -- ele não enviar certos arquivos para o git
+
+arquivo help conteudos uteis
+
+pasta source onde fica os arquivos
+
+pomm cerebro do projeto - gerencia todos o prjeto e o arquvios
+
+	parent projeto padrçao para 		comecar um projeto com os 		metadados ja atrelados a ele, 	dados fornecidos no spring
+
+	dependencias spring boot, 		spring boot starte web, 		spring boot dev tools, 			arquivos de testes, plug-in 		para testar a aplicação
+
+forma recomendavel de fazer 
+
+---------
+criar uma forma de comunicação do backend falando com a web
+
+criar 
+src --> main --> ibank
+
+criar a pasta controllers
+
+criar o arquivo HealthController.java
+
+package br.com.itau.techinsiders.ibank.controllers;
+ 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+ 
+@RestController
+public class HealthController {
+ 
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String status() {
+        return "{\"status\": \"running\"}";
+    }
+ 
+}
+
+application.properties caso a porta 808 esteja ocupada
+server.port=8081
+
+
+teste se funcionou a subida do servidor
+
+na classe
+ibankApplication.java
+apertar o f5
+
+colocar o enderço abaixo na url do chrome
+http://localhost:8081/
+
+vai aparecer
+{"status": "running"}
+
+https://mvnrepository.com/
+
+configurar com o banco de dados java
+ na linha 27:
+
+      <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+objeto que conecta abase de dados
+drivermanagedatasouce
+onde fica o drive
+onde etsa a url
+onde esta o nome
+onde esta a senha
+
+javaadaptor
+configurações
+hibernatejavaadaprtor objeto que cira um classe que 
+configura
+qual banco de dados
+exibe um logo do q acontece
+camada ddl lugar onde fica a gerenciamento das tabelas e schemas
+
+plataforma do banco de dados dialeto da plataforma usa
+
+preparação da conexao com o banco de dados
+
+
+configuração da base de daos para o spring bot
+
+
+
+comando de criação do file DataConfiguration
+
+
+package br.com.itau.techinsiders.ibank;
+
+ 
+
+import javax.sql.DataSource;
+
+ 
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+ 
+
+@Configuration
+public class DataConfiguration {
+
+ 
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/ibank");
+        dataSource.setUsername("root");
+        dataSource.setPassword("techinsiders");
+        
+        return dataSource;
+        
+    }
+    
+    @Bean
+    public JpaVendorAdapter jpaVendorAdapter() {
+        
+        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+        adapter.setDatabase(Database.MYSQL);
+        adapter.setShowSql(true);
+        adapter.setGenerateDdl(true);
+        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL5Dialect");
+        adapter.setPrepareConnection(true);
+        
+        return adapter;
+            
+    }
+
+ 
+
+}
+
+
+pessoal no arquivo DataConfiguration alterem a linha setUrl parea quem estiver tomando o WARNING para essa aqui 
+ 
+
+dataSource.setUrl("jdbc:mysql://localhost:3306/ibank?useSSL=false&serverTimezone=UTC");
+
+
+no pacote de models criar a entidade 
+entidade que se cominuca com banco de daos deve ter uma interface serializabel
+
+Pessoa.java
+package br.com.itau.techinsiders.ibank.models;
+ 
+import java.io.Serializable;
+ 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+ 
+@Entity
+public class Pessoa implements Serializable {
+ 
+    private static final long serialVersionUID = 4100739249410479338L;
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+ 
+    @Column(name = "pes_nome")
+    private String nome;
+ 
+    @Column(name = "pes_telefone", unique = true)
+    private String telefone;
+ 
+    public Long getId() {
+        return id;
+    }
+ 
+    public void setId(Long id) {
+        this.id = id;
+    }
+ 
+    public String getNome() {
+        return nome;
+    }
+ 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+ 
+    public String getTelefone() {
+        return telefone;
+    }
+ 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+ 
+    public Pessoa() {
+ 
+    }
+ 
+}
+
+
